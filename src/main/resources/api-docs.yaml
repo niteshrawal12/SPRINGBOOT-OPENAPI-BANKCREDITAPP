@@ -1,0 +1,110 @@
+openapi: 3.0.1
+info:
+  title: API
+  description: bankcredit microservice documenting
+  version: "2.0"
+servers:
+- url: http://localhost:8080
+  description: Generated server url
+paths:
+  /api/bankcredits/{id}:
+    get:
+      tags:
+      - bank-credit-controller
+      operationId: getBankCreditById
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/BankCredit'
+    put:
+      tags:
+      - bank-credit-controller
+      operationId: updateBankCredit
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BankCredit'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/BankCredit'
+    delete:
+      tags:
+      - bank-credit-controller
+      operationId: deleteBankCredit
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+  /api/bankcredits:
+    get:
+      tags:
+      - bank-credit-controller
+      operationId: getAllBankCredits
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BankCredit'
+    post:
+      tags:
+      - bank-credit-controller
+      operationId: createBankCredit
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BankCredit'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/BankCredit'
+components:
+  schemas:
+    BankCredit:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        accountNumber:
+          type: string
+        creditAmount:
+          type: number
+          format: double
