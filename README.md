@@ -13,17 +13,13 @@ This is a sample project that demonstrates the integration of Camunda BPM, Sprin
 ## Getting Started
 
 1. **Clone the Repository**:
-   ```sh
-   git clone https://github.com/yourusername/your-repo.git
-   cd your-repo
+   git clone https://github.com/niteshrawal12/SPRINGBOOT-OPENAPI-BANKCREDITAPP.git
 2. **Database Setup**:
 Set up a MySQL database and configure the connection details in src/main/resources/application.properties.
 Run Camunda Run:
-
 3. **Download Camunda Run from Camunda's website.**
 Start Camunda Run using the provided batch or shell script.
 Run the Spring Boot Application:
-
 4. **Build and run the Spring Boot application using Maven**:
 mvn spring-boot:run
 
